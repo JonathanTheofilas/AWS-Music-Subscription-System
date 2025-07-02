@@ -59,9 +59,26 @@ cd aws-music-subscription-system
 composer install
 ```
 
-### 3. Install Python Dependencies
+### 3. Set Up Python Environment
 ```bash
-pip install boto3 requests
+# Create virtual environment (recommended)
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+**Note**: The `requirements.txt` file should contain:
+```
+boto3>=1.26.0
+requests>=2.28.0
+botocore>=1.29.0
 ```
 
 ### 4. Configure AWS Credentials
@@ -112,6 +129,11 @@ aws-music-subscription-system/
 ├── main.php               # Main dashboard and music management
 ├── logout.php             # Session termination
 ├── a1.json                # Music data source file
+├── composer.json          # PHP dependencies
+├── requirements.txt       # Python dependencies
+├── .gitignore             # Git ignore rules
+├── .gitattributes         # Git attributes
+├── vendor/                # PHP vendor packages (excluded from Git)
 └── README.md              # Project documentation
 ```
 
@@ -174,10 +196,6 @@ The application uses PHP server-side processing with the following key operation
 - `POST /register.php` - New user registration
 - `POST /main.php` - Music search and subscription management
 - `GET /logout.php` - Session termination
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👤 Author
 
